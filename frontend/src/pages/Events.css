@@ -1,0 +1,158 @@
+.events-page { padding-bottom: 4rem; }
+
+.events-header {
+  background: linear-gradient(135deg, #6B0F0F, #8B1A1A);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.events-header h1 { font-size: 2.2rem; color: #FFF8F0; margin-bottom: 0.5rem; }
+.events-header p { color: #F5E6D3; font-size: 1rem; }
+
+.events-filters {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.search-bar {
+  display: flex;
+  flex: 1;
+  min-width: 250px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: var(--white);
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.search-bar button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.search-bar button:hover { background: var(--primary-dark); }
+
+.category-filter {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text);
+  font-size: 0.95rem;
+  min-width: 180px;
+}
+
+.category-filter:focus { border-color: var(--primary); }
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem 2rem;
+}
+
+.event-card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card:hover { transform: translateY(-5px); }
+
+.event-card-header {
+  background: linear-gradient(135deg, #6B0F0F, #A52A2A);
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-category {
+  background: rgba(255,248,240,0.2);
+  color: #FFF8F0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.event-price {
+  color: #FFF8F0;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.event-card-body { padding: 1.2rem; flex: 1; }
+
+.event-card-body h3 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.event-description {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 0.8rem;
+}
+
+.event-organizer {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.event-card-footer {
+  padding: 1rem 1.2rem;
+  border-top: 1px solid var(--border);
+}
+
+.view-btn {
+  display: block;
+  text-align: center;
+  background: var(--primary);
+  color: white;
+  padding: 0.7rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.view-btn:hover { background: var(--primary-dark); }
+
+.no-events {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-light);
+  font-size: 1.1rem;
+}

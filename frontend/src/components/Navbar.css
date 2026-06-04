@@ -1,0 +1,71 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #6B0F0F;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(107, 15, 15, 0.4);
+}
+
+.navbar-brand a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFF8F0;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: #F5E6D3;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: #ffffff;
+}
+
+.user-name {
+  color: #F5E6D3;
+  font-size: 0.9rem;
+}
+
+.nav-btn-primary {
+  background-color: #FFF8F0 !important;
+  color: #8B1A1A !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 6px;
+  font-weight: 700 !important;
+  transition: all 0.2s !important;
+}
+
+.nav-btn-primary:hover {
+  background-color: #F5E6D3 !important;
+}
+
+.nav-btn-outline {
+  border: 2px solid #FFF8F0;
+  color: #FFF8F0 !important;
+  padding: 0.45rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  background: transparent;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.nav-btn-outline:hover {
+  background-color: #FFF8F0;
+  color: #8B1A1A !important;
+}
