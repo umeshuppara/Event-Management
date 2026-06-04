@@ -1,6 +1,6 @@
 # EventHub - Event Booking & Management Platform
 
-A modern, full-stack event booking application with secure mock payments, email confirmations, and real-time event management.
+EventHub: A full-stack React/Node.js event booking platform. Features real-time seat selection, mock payment processing, automated email confirmations via Nodemailer, and JWT authentication. Includes a dedicated admin dashboard for event oversight, analytics, and revenue tracking. Seamless, secure, and built with the MERN stack.
 
 ## 🚀 Quick Start (5 Minutes)
 
@@ -65,7 +65,7 @@ For detailed setup, API endpoints, and deployment instructions, see [backend/.en
 - **Seat Selection** - Visual seat map with availability
 - **Booking** - Multiple ticket types (VIP, Early Bird, Normal)
 - **Secure Payments** - Mock payment system with simulated processing
-- **Email Confirmations** - Booking & payment receipts
+- **Email Confirmations** - Automated payment receipts via Gmail
 - **Dashboard** - View all bookings and tickets
 - **Auto Expiry** - Events disappear after start time
 - **Booking Lock** - Can't book after event starts
@@ -78,7 +78,7 @@ For detailed setup, API endpoints, and deployment instructions, see [backend/.en
 
 ### ✅ Technical Features
 - **Real-time Seat Updates** - Live availability
-- **Email Service** - HTML templates with booking details
+- **Email Service** - Clean HTML templates with transaction details
 - **Error Handling** - Graceful errors & user feedback
 - **Security** - JWT auth, role-based access, password hashing
 - **Database** - MongoDB with proper indexing
@@ -227,34 +227,38 @@ Backend Confirms Payment & Updates Booking
 - [ ] Test payment completed successfully
 
 ---
-
 ## 🚀 Deployment
 
-### Frontend Deployment (Vercel/Netlify)
-```bash
-cd frontend
-npm run build
-# Deploy dist/ folder
-```
+### Frontend Deployment (Vercel)
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click **New Project** → import **Event-Management** repo
+3. Set **Root Directory** to `frontend`
+4. Add environment variable:
+   - `VITE_API_URL` = `https://your-backend.onrender.com`
+5. Click **Deploy**
 
-### Backend Deployment (Heroku/Railway)
-1. Set all `.env` variables on hosting platform
-2. Deploy code
+### Backend Deployment (Render)
+1. Go to [render.com](https://render.com) and sign in with GitHub
+2. Click **New → Web Service** → connect **Event-Management** repo
+3. Set **Root Directory** to `backend`
+4. Set **Build Command** to `npm install`
+5. Set **Start Command** to `node index.js`
+6. Add all `.env` variables in the Environment tab
+7. Click **Create Web Service**
 
 **Before going live**:
-- [ ] Complete payment flow tested with test cards
 - [ ] Emails confirmed working
 - [ ] Event expiry tested
 - [ ] All admin features working
 - [ ] Error handling verified
+- [ ] CORS configured for Vercel frontend URL
 
 ---
 
 ## 📞 Getting Help
 
-1. **Payment Issues**: Check browser console for errors and server logs
-2. **Setup Questions**: Follow setup steps in README and .env.example files
-3. **Code Issues**: Check backend/frontend logs in terminal
+1. **Setup Questions**: Follow setup steps in README and .env.example files
+2. **Code Issues**: Check backend/frontend logs in terminal
 
 ---
 
@@ -267,11 +271,11 @@ This project is open source. Feel free to use it for learning and development.
 ## ✨ Ready to Start?
 
 **Next Steps:**
-1. Read [STRIPE_SETUP_GUIDE.md](./STRIPE_SETUP_GUIDE.md) - Takes 15 minutes
-2. Run `npm install` in both backend & frontend
-3. Configure `.env` files with your Stripe keys
-4. Start servers: `npm start` (backend) & `npm run dev` (frontend)
-5. Test a complete payment flow
-6. You're ready to deploy! 🚀
+1. Run `npm install` in both `backend` & `frontend`
+2. Configure `.env` files
+3. Start servers: `npm start` (backend) & `npm run dev` (frontend)
+4. Deploy backend on Render
+5. Deploy frontend on Vercel
+6. You're ready! 🚀
 
 Happy building! 🎉
