@@ -116,8 +116,6 @@ event-management/
 ```
 User Books Event
        ↓
-✉️ Booking Confirmation Email Sent
-       ↓
 User Clicks "Pay Now"
        ↓
 User Enters Card Details (16 digits, MM/YY, CVV)
