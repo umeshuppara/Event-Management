@@ -1,8 +1,4 @@
-const SibApiV3Sdk = require('@getbrevo/brevo');
-
-const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-const apiKey = apiInstance.authentications['apiKey'];
-apiKey.apiKey = process.env.BREVO_API_KEY;
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 exports.sendPaymentConfirmationEmail = async (options) => {
   try {
@@ -40,18 +36,32 @@ exports.sendPaymentConfirmationEmail = async (options) => {
       </div>
     `;
 
-    const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-    sendSmtpEmail.subject = 'Payment Successful - EventHub';
-    sendSmtpEmail.htmlContent = htmlContent;
-    sendSmtpEmail.sender = {
-      name: process.env.EMAIL_FROM_NAME || 'EventHub Team',
-      email: process.env.EMAIL_USER,
-    };
-    sendSmtpEmail.to = [{ email: to, name: userName }];
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'api-key': process.env.BREVO_API_KEY,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: {
+          name: process.env.EMAIL_FROM_NAME || 'EventHub Team',
+          email: process.env.EMAIL_USER,
+        },
+        to: [{ email: to, name: userName }],
+        subject: 'Payment Successful - EventHub',
+        htmlContent,
+      }),
+    });
 
-    const result = await apiInstance.sendTransacEmail(sendSmtpEmail);
-    console.log('✅ Email sent successfully:', result);
-    return { success: true, messageId: result.messageId };
+    const data = await response.json();
+    if (response.ok) {
+      console.log('✅ Email sent successfully:', data);
+      return { success: true, messageId: data.messageId };
+    } else {
+      console.error('❌ Email API error:', data);
+      return { success: false, error: data.message };
+    }
   } catch (error) {
     console.error('❌ Error sending email:', error);
     return { success: false, error: error.message };
