@@ -1,10 +1,8 @@
 const SibApiV3Sdk = require('@getbrevo/brevo');
 
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-apiInstance.setApiKey(
-  SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
-  process.env.BREVO_API_KEY
-);
+const apiKey = apiInstance.authentications['apiKey'];
+apiKey.apiKey = process.env.BREVO_API_KEY;
 
 exports.sendPaymentConfirmationEmail = async (options) => {
   try {
